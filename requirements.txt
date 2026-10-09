@@ -1,0 +1,2 @@
+# Railway / Python dependencies file
+# Este proyecto utiliza únicamente librerías estándar nativas de Python

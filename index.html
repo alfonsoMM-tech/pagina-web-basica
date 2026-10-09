@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estructura web moderna con HTML5, CSS3 y JavaScript interactivo">
+  <title>Mi Sitio Web Moderno</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">NovaWeb</span>
+      </div>
+      <nav class="nav-links">
+        <span class="status-badge" id="system-status">
+          <span class="status-dot"></span>
+          Sistema Operativo
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="badge-pill">
+          <span>✨</span> Estructura Básica Inicializada
+        </div>
+        <h1 class="hero-title">
+          Tu página web está lista <br>
+          <span class="gradient-text">y funcionando en vivo</span>
+        </h1>
+        <p class="hero-description">
+          Construida con HTML5 semántico, diseño moderno en CSS (modo oscuro, efectos de cristal y gradientes) y lógica interactiva en JavaScript.
+        </p>
+      </section>
+
+      <!-- Interactive Showcase Cards -->
+      <section class="cards-grid">
+        <!-- Card 1: Interactive Counter -->
+        <article class="feature-card glass-card">
+          <div class="card-icon-wrapper icon-purple">
+            <span>🔢</span>
+          </div>
+          <h2 class="card-title">Contador Interactivo</h2>
+          <p class="card-text">Prueba de manipulación del DOM y manejo de eventos mediante <code class="code-tag">app.js</code>.</p>
+          
+          <div class="counter-display" id="counter-value">0</div>
+
+          <div class="button-group">
+            <button id="btn-decrement" class="btn btn-secondary" aria-label="Decrementar">-1</button>
+            <button id="btn-reset" class="btn btn-outline" aria-label="Reiniciar">Reiniciar</button>
+            <button id="btn-increment" class="btn btn-primary" aria-label="Incrementar">+1</button>
+          </div>
+        </article>
+
+        <!-- Card 2: Interactive Theme Accent -->
+        <article class="feature-card glass-card">
+          <div class="card-icon-wrapper icon-cyan">
+            <span>🎨</span>
+          </div>
+          <h2 class="card-title">Acento Dinámico</h2>
+          <p class="card-text">Cambia la paleta cromática en tiempo real manipulando variables CSS nativas.</p>
+          
+          <div class="accent-palette-preview" id="palette-preview">
+            <span class="color-sample active" data-color="#6366f1" style="background: #6366f1;"></span>
+            <span class="color-sample" data-color="#ec4899" style="background: #ec4899;"></span>
+            <span class="color-sample" data-color="#06b6d4" style="background: #06b6d4;"></span>
+            <span class="color-sample" data-color="#10b981" style="background: #10b981;"></span>
+            <span class="color-sample" data-color="#f59e0b" style="background: #f59e0b;"></span>
+          </div>
+
+          <button id="btn-random-theme" class="btn btn-secondary full-width">
+            <span>🎲</span> Cambiar Acento
+          </button>
+        </article>
+
+        <!-- Card 3: Interactive Toast Notifications -->
+        <article class="feature-card glass-card">
+          <div class="card-icon-wrapper icon-emerald">
+            <span>🔔</span>
+          </div>
+          <h2 class="card-title">Notificaciones Toast</h2>
+          <p class="card-text">Dispara notificaciones flotantes temporizadas para verificar animaciones dinámicas.</p>
+          
+          <div class="clock-display">
+            <span class="clock-label">Hora local:</span>
+            <span id="live-clock" class="clock-time">--:--:--</span>
+          </div>
+
+          <button id="btn-notify" class="btn btn-primary full-width">
+            <span>🚀</span> Enviar Notificación
+          </button>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="current-year"></span> Proyecto Base Web · Creado con HTML, CSS y JS.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>
