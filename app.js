@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // Fecha calculada de inicio: hace 1 año y 9 meses
   const now = new Date();
-  const startDate = new Date(now.getFullYear(), now.getMonth() - 21, now.getDate(), 0, 0, 0);
+  const startDate = new Date(2025, 0, 10, 0, 0, 0);
+ 
 
   function updateAnniversaryCounter() {
     const current = new Date();
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Música de Fondo: WOS - "Alma Dinamita" en bucle (YouTube + Local)
   // =========================================================================
   let ytPlayer = null;
-  let isPlaying = false;
+  let isPlaying = true;
   const musicDisc = document.getElementById('music-disc');
   const musicIcon = document.getElementById('music-icon');
   const btnToggleMusic = document.getElementById('btn-toggle-music');
