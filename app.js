@@ -10,34 +10,51 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Contador de Tiempo Juntos en Vivo (1 Año y 9 Meses = 21 Meses)
   // =========================================================================
   // Fecha calculada de inicio: hace 1 año y 9 meses
-  const now = new Date();
-  const startDate = new Date(2025, 0, 10, 0, 0, 0);
- 
 
-  function updateAnniversaryCounter() {
+const startDate = new Date(2025, 0, 10, 0, 0, 0);
+
+function updateAnniversaryCounter() {
     const current = new Date();
-    const diffMs = current - startDate;
 
-    const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
-    const seconds = Math.floor((diffMs / 1000) % 60);
+    let months =
+        (current.getFullYear() - startDate.getFullYear()) * 12 +
+        (current.getMonth() - startDate.getMonth());
 
-    const countMonthsEl = document.getElementById('count-months');
-    const countDaysEl = document.getElementById('count-days');
-    const countHoursEl = document.getElementById('count-hours');
-    const countMinsEl = document.getElementById('count-mins');
-    const countSecsEl = document.getElementById('count-secs');
+    let anniversary = new Date(
+        startDate.getFullYear(),
+        startDate.getMonth() + months,
+        startDate.getDate()
+    );
 
-    if (countMonthsEl) countMonthsEl.textContent = '21';
-    if (countDaysEl) countDaysEl.textContent = String(totalDays % 30).padStart(2, '0');
-    if (countHoursEl) countHoursEl.textContent = String(hours).padStart(2, '0');
-    if (countMinsEl) countMinsEl.textContent = String(minutes).padStart(2, '0');
-    if (countSecsEl) countSecsEl.textContent = String(seconds).padStart(2, '0');
-  }
+    if (current < anniversary) {
+        months--;
+        anniversary = new Date(
+            startDate.getFullYear(),
+            startDate.getMonth() + months,
+            startDate.getDate()
+        );
+    }
 
-  updateAnniversaryCounter();
-  setInterval(updateAnniversaryCounter, 1000);
+    const remainderMs = current - anniversary;
+
+    const days = Math.floor(remainderMs / 86400000);
+    const hours = Math.floor((remainderMs / 3600000) % 24);
+    const minutes = Math.floor((remainderMs / 60000) % 60);
+    const seconds = Math.floor((remainderMs / 1000) % 60);
+
+    document.getElementById('count-months').textContent = months;
+    document.getElementById('count-days').textContent =
+        String(days).padStart(2, '0');
+    document.getElementById('count-hours').textContent =
+        String(hours).padStart(2, '0');
+    document.getElementById('count-mins').textContent =
+        String(minutes).padStart(2, '0');
+    document.getElementById('count-secs').textContent =
+        String(seconds).padStart(2, '0');
+}
+
+updateAnniversaryCounter();
+setInterval(updateAnniversaryCounter, 1000);
 
   // =========================================================================
   // 2. Música de Fondo: WOS - "Alma Dinamita" en bucle (YouTube + Local)
