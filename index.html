@@ -2,126 +2,390 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Estructura web moderna con HTML5, CSS3 y JavaScript interactivo">
-  <title>Mi Sitio Web Moderno</title>
-  <!-- Google Fonts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Nuestra historia de amor - 1 año y 9 meses juntos, Renata y Alfonso">
+  <title>Para Renata | 1 Año y 9 Meses Juntos 💕</title>
+
+  <!-- Google Fonts: Playfair Display + Outfit + Dancing Script -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Ambient background glow elements -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
+  <!-- Partículas de corazones flotantes de fondo -->
+  <div class="hearts-background" id="hearts-bg"></div>
 
-  <!-- Header / Navigation -->
-  <header class="header">
-    <div class="container nav-container">
-      <div class="logo">
-        <span class="logo-icon">⚡</span>
-        <span class="logo-text">NovaWeb</span>
+  <!-- Reproductor de Audio Oculto de YouTube (WOS - Alma Dinamita) -->
+  <div id="yt-audio-player" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px;"></div>
+  <!-- Audio local opcional por si se añade archivo mp3 local -->
+  <audio id="local-audio" loop preload="auto" src="assets/music.mp3"></audio>
+
+  <!-- Widget Flotante de Música Estilo iOS -->
+  <aside class="floating-music-bar" id="music-pill">
+    <div class="music-disc" id="music-disc">
+      <span>💿</span>
+    </div>
+    <div class="music-info">
+      <span class="music-title">Alma Dinamita</span>
+      <span class="music-artist">WOS 🎶</span>
+    </div>
+    <button class="music-toggle-btn" id="btn-toggle-music" aria-label="Reproducir o pausar música">
+      <span id="music-icon">▶</span>
+    </button>
+  </aside>
+
+  <!-- Botón de Emergencia Fijo "¿Me extrañas?" -->
+  <button class="emergency-miss-btn" id="btn-miss-you" aria-label="Presionar si me extrañas">
+    <span class="heart-pulse-icon">💖</span>
+    <span class="btn-miss-text">¿Me extrañas?</span>
+  </button>
+
+  <!-- Contenedor Principal (Optimizado para Celular) -->
+  <div class="mobile-wrapper">
+
+    <!-- Banner Superior de Música (Invitación a primer toque) -->
+    <div class="music-banner-prompt" id="music-start-prompt">
+      <span>🎵 Toca aquí para encender nuestra canción...</span>
+    </div>
+
+    <!-- Encabezado / Hero Section -->
+    <header class="romantic-hero">
+      <div class="anniversary-badge">
+        <span class="badge-icon">✨</span>
+        <span>1 Año y 9 Meses Juntos</span>
+        <span class="badge-icon">✨</span>
       </div>
-      <nav class="nav-links">
-        <span class="status-badge" id="system-status">
-          <span class="status-dot"></span>
-          Sistema Operativo
-        </span>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="container">
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <div class="badge-pill">
-          <span>✨</span> Estructura Básica Inicializada
+      <h1 class="hero-title">
+        Para el amor de mi vida, <br>
+        <span class="name-highlight">Renata</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        21 meses construyendo los momentos más felices de mi vida a tu lado. Esta página es un pedacito de todo lo que siento por ti.
+      </p>
+
+      <!-- Contador de Tiempo Juntos en Vivo -->
+      <div class="time-counter-card">
+        <div class="counter-header">
+          <span class="heart-beat">❤️</span>
+          <span>Tiempo amándonos sin parar:</span>
         </div>
-        <h1 class="hero-title">
-          Tu página web está lista <br>
-          <span class="gradient-text">y funcionando en vivo</span>
-        </h1>
-        <p class="hero-description">
-          Construida con HTML5 semántico, diseño moderno en CSS (modo oscuro, efectos de cristal y gradientes) y lógica interactiva en JavaScript.
-        </p>
-      </section>
-
-      <!-- Interactive Showcase Cards -->
-      <section class="cards-grid">
-        <!-- Card 1: Interactive Counter -->
-        <article class="feature-card glass-card">
-          <div class="card-icon-wrapper icon-purple">
-            <span>🔢</span>
+        <div class="counter-grid">
+          <div class="counter-box">
+            <span class="counter-num" id="count-months">21</span>
+            <span class="counter-label">Meses</span>
           </div>
-          <h2 class="card-title">Contador Interactivo</h2>
-          <p class="card-text">Prueba de manipulación del DOM y manejo de eventos mediante <code class="code-tag">app.js</code>.</p>
-          
-          <div class="counter-display" id="counter-value">0</div>
-
-          <div class="button-group">
-            <button id="btn-decrement" class="btn btn-secondary" aria-label="Decrementar">-1</button>
-            <button id="btn-reset" class="btn btn-outline" aria-label="Reiniciar">Reiniciar</button>
-            <button id="btn-increment" class="btn btn-primary" aria-label="Incrementar">+1</button>
+          <div class="counter-box">
+            <span class="counter-num" id="count-days">--</span>
+            <span class="counter-label">Días</span>
           </div>
-        </article>
-
-        <!-- Card 2: Interactive Theme Accent -->
-        <article class="feature-card glass-card">
-          <div class="card-icon-wrapper icon-cyan">
-            <span>🎨</span>
+          <div class="counter-box">
+            <span class="counter-num" id="count-hours">--</span>
+            <span class="counter-label">Horas</span>
           </div>
-          <h2 class="card-title">Acento Dinámico</h2>
-          <p class="card-text">Cambia la paleta cromática en tiempo real manipulando variables CSS nativas.</p>
-          
-          <div class="accent-palette-preview" id="palette-preview">
-            <span class="color-sample active" data-color="#6366f1" style="background: #6366f1;"></span>
-            <span class="color-sample" data-color="#ec4899" style="background: #ec4899;"></span>
-            <span class="color-sample" data-color="#06b6d4" style="background: #06b6d4;"></span>
-            <span class="color-sample" data-color="#10b981" style="background: #10b981;"></span>
-            <span class="color-sample" data-color="#f59e0b" style="background: #f59e0b;"></span>
+          <div class="counter-box">
+            <span class="counter-num" id="count-mins">--</span>
+            <span class="counter-label">Min</span>
           </div>
-
-          <button id="btn-random-theme" class="btn btn-secondary full-width">
-            <span>🎲</span> Cambiar Acento
-          </button>
-        </article>
-
-        <!-- Card 3: Interactive Toast Notifications -->
-        <article class="feature-card glass-card">
-          <div class="card-icon-wrapper icon-emerald">
-            <span>🔔</span>
+          <div class="counter-box">
+            <span class="counter-num" id="count-secs">--</span>
+            <span class="counter-label">Seg</span>
           </div>
-          <h2 class="card-title">Notificaciones Toast</h2>
-          <p class="card-text">Dispara notificaciones flotantes temporizadas para verificar animaciones dinámicas.</p>
-          
-          <div class="clock-display">
-            <span class="clock-label">Hora local:</span>
-            <span id="live-clock" class="clock-time">--:--:--</span>
-          </div>
+        </div>
+      </div>
+    </header>
 
-          <button id="btn-notify" class="btn btn-primary full-width">
-            <span>🚀</span> Enviar Notificación
-          </button>
-        </article>
-      </section>
+    <!-- Galería de Recuerdos Polaroid (Deslizable para celular) -->
+    <section class="polaroids-section">
+      <div class="section-tag">Nuestra Historia</div>
+      <h2 class="section-title">Instantes Inolvidables 📸</h2>
+      <p class="section-intro">Desliza para recordar algunos de nuestros momentos favoritos...</p>
+
+      <div class="polaroid-slider">
+        <!-- Foto 1 -->
+        <div class="polaroid-card rotate-left">
+          <div class="polaroid-tape"></div>
+          <img src="assets/images/foto1.jpg" alt="Recuerdo con Renata" class="polaroid-img" loading="lazy">
+          <div class="polaroid-caption">Tu sonrisa que me ilumina siempre ✨</div>
+        </div>
+        <!-- Foto 2 -->
+        <div class="polaroid-card rotate-right">
+          <div class="polaroid-tape"></div>
+          <img src="assets/images/foto2.jpg" alt="Recuerdo con Renata" class="polaroid-img" loading="lazy">
+          <div class="polaroid-caption">Mi lugar favorito es contigo 🤍</div>
+        </div>
+        <!-- Foto 3 -->
+        <div class="polaroid-card rotate-left">
+          <div class="polaroid-tape"></div>
+          <img src="assets/images/foto3.jpg" alt="Recuerdo con Renata" class="polaroid-img" loading="lazy">
+          <div class="polaroid-caption">El amor de mi vida entera 🌷</div>
+        </div>
+        <!-- Foto 4 -->
+        <div class="polaroid-card rotate-right">
+          <div class="polaroid-tape"></div>
+          <img src="assets/images/foto4.jpg" alt="Recuerdo con Renata" class="polaroid-img" loading="lazy">
+          <div class="polaroid-caption">Cada segundo a tu lado vale oro 💫</div>
+        </div>
+        <!-- Foto 5 -->
+        <div class="polaroid-card rotate-left">
+          <div class="polaroid-tape"></div>
+          <img src="assets/images/foto5.jpg" alt="Recuerdo con Renata" class="polaroid-img" loading="lazy">
+          <div class="polaroid-caption">Tú y yo contra el mundo 💕</div>
+        </div>
+        <!-- Foto 6 -->
+        <div class="polaroid-card rotate-right">
+          <div class="polaroid-tape"></div>
+          <img src="assets/images/foto6.jpg" alt="Recuerdo con Renata" class="polaroid-img" loading="lazy">
+          <div class="polaroid-caption">Gracias por hacerme tan feliz 🥰</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Actividad 1: Razones por las que te amo (Tarjetas Volteables) -->
+    <section class="activity-section">
+      <div class="section-tag">Para Ti</div>
+      <h2 class="section-title">Razones por las que Te Amo 💌</h2>
+      <p class="section-intro">Toca cada tarjetita para darle la vuelta y descubrir una razón especial...</p>
+
+      <!-- Mini fotos decorativas flotando suavemente alrededor -->
+      <div class="floating-stickers">
+        <img src="assets/images/foto7.jpg" alt="Mini sticker" class="sticker-photo sticker-1">
+        <img src="assets/images/foto8.jpg" alt="Mini sticker" class="sticker-photo sticker-2">
+      </div>
+
+      <div class="flip-cards-grid">
+        <!-- Tarjeta 1 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">💌</span>
+              <span class="card-number">#1</span>
+              <p class="card-hint">Tócame</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="reason-heart">💖</span>
+              <p class="reason-text">Te amo por <strong>cómo eres</strong>, por tu forma tan linda, pura y genuina de ser.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🌷</span>
+              <span class="card-number">#2</span>
+              <p class="card-hint">Tócame</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="reason-heart">🌸</span>
+              <p class="reason-text">Te amo por <strong>cómo me tratas</strong>, con tanta ternura, respeto y cariño incondicional.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">⭐</span>
+              <span class="card-number">#3</span>
+              <p class="card-hint">Tócame</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="reason-heart">✨</span>
+              <p class="reason-text">Te <strong>admiro profundamente</strong> por cómo te esfuerzas todos los días y nunca te rindes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🔥</span>
+              <span class="card-number">#4</span>
+              <p class="card-hint">Tócame</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="reason-heart">❤️‍🔥</span>
+              <p class="reason-text">Te <strong>deseo y te extraño</strong> todos los días, cada instante que no estoy junto a ti.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">💭</span>
+              <span class="card-number">#5</span>
+              <p class="card-hint">Tócame</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="reason-heart">🌙</span>
+              <p class="reason-text">Te <strong>pienso todos los días</strong>, desde que abro los ojos hasta que me duermo soñando contigo.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 6 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🦋</span>
+              <span class="card-number">#6</span>
+              <p class="card-hint">Tócame</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="reason-heart">🤍</span>
+              <p class="reason-text">Por tus abrazos cálidos que tienen el poder de calmar cualquier mal día.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 7 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">🎀</span>
+              <span class="card-number">#7</span>
+              <p class="card-hint">Tócame</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="reason-heart">💕</span>
+              <p class="reason-text">Porque eres mi niña consentida, mi mejor amiga y mi cómplice favorita.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 8 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="card-icon">👑</span>
+              <span class="card-number">#8</span>
+              <p class="card-hint">Tócame</p>
+            </div>
+            <div class="flip-card-back">
+              <span class="reason-heart">💎</span>
+              <p class="reason-text">Por cómo brillas cuando sonríes; tu alegría ilumina todo mi universo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Actividad 2: El Rasca-Rasca Virtual (Scratchcard) -->
+    <section class="activity-section">
+      <div class="section-tag">Sorpresa Interactiva</div>
+      <h2 class="section-title">El Rasca-Rasca del Amor 🪙</h2>
+      <p class="section-intro">Pasa tu dedo (o el mouse) sobre la tarjeta para rasparla y revelar lo que hay debajo...</p>
+
+      <div class="scratchcard-container">
+        <!-- Contenido Oculto que se revela al raspar -->
+        <div class="scratchcard-hidden-content" id="scratch-secret">
+          <img src="assets/images/foto9.jpg" alt="Foto sorpresa" class="scratch-reveal-photo">
+          <div class="scratch-reveal-text">
+            <span class="scratch-badge">🎉 ¡Sorpresa Revelada! 🎉</span>
+            <h3>¡Ya quiero que sea nuestro 2do aniversario!</h3>
+            <p>Prepara tu corazón, porque para nuestra próxima cita tengo planeado algo que te va a encantar tanto como tú me encantas a mí.</p>
+            <p class="scratch-love-tag">Eres mi todo, Renata ❤️</p>
+          </div>
+        </div>
+
+        <!-- Canvas que cubre la tarjeta para raspar -->
+        <canvas id="scratch-canvas" class="scratch-canvas"></canvas>
+      </div>
+
+      <div class="scratch-progress-bar-wrap">
+        <div class="scratch-progress-bar" id="scratch-progress"></div>
+      </div>
+      <p class="scratch-instructions" id="scratch-status-text">✨ Raspa al menos el 50% de la superficie para desbloquear la sorpresa</p>
+    </section>
+
+    <!-- Actividad 3: Cuadro de Mensajes del Día (Galleta de la Fortuna) -->
+    <section class="activity-section">
+      <div class="section-tag">Cajita Mágica</div>
+      <h2 class="section-title">Mensajes Para Tu Corazón 🎁</h2>
+      <p class="section-intro">Toca el regalito cada vez que quieras un recordatorio de lo especial que eres para mí...</p>
+
+      <div class="fortune-cookie-box">
+        <button class="gift-button" id="btn-gift" aria-label="Abrir mensaje sorpresa">
+          <span class="gift-emoji" id="gift-icon">🎁</span>
+          <span class="gift-btn-text">¡Tócame para abrir!</span>
+        </button>
+
+        <div class="fortune-message-card" id="fortune-display">
+          <span class="fortune-quote-icon">“</span>
+          <p id="fortune-text" class="fortune-text">Haz clic en el regalito arriba para recibir tu primer mensaje de hoy, mi amor...</p>
+          <span class="fortune-author">— Con todo mi amor, Alfonso</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carta Romántica con Sello de Cera -->
+    <section class="love-letter-section">
+      <div class="letter-envelope">
+        <div class="letter-header">
+          <span class="wax-seal">💌</span>
+          <h3 class="letter-title">Carta para mis 21 meses contigo</h3>
+        </div>
+        <div class="letter-body">
+          <p>Mi amor hermosa,</p>
+          <p>
+            Parece que fue ayer cuando empezamos este camino juntos, y hoy ya celebramos 1 año y 9 meses. Cada día que pasa me convenzo más de que encontrarte ha sido el regalo más bonito de mi vida.
+          </p>
+          <p>
+            Gracias por tu paciencia, por tus risas compartidas, por escucharme, por sostenerme y por ser el refugio más dulce al que siempre quiero volver. Te amo hoy más que nunca, y no puedo esperar a seguir escribiendo miles de capítulos más a tu lado.
+          </p>
+          <p class="letter-signature">
+            Siempre tuyo,<br>
+            <span class="sig-name">Alfonso ❤️</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Romántico -->
+    <footer class="romantic-footer">
+      <img src="assets/images/foto11.jpg" alt="Nosotros" class="footer-couple-avatar">
+      <p class="footer-text">1 Año y 9 Meses Juntos · Alfonso & Renata</p>
+      <p class="footer-subtext">Hecho con todo mi amor para la persona más hermosa del mundo entero ♾️</p>
+    </footer>
+
+  </div> <!-- /mobile-wrapper -->
+
+  <!-- Modal de Emergencia: "¿Me Extrañas?" -->
+  <div class="emergency-modal-overlay" id="modal-miss-you" role="dialog" aria-hidden="true">
+    <div class="emergency-modal-card">
+      <button class="modal-close-btn" id="btn-close-modal" aria-label="Cerrar">✕</button>
+      <div class="modal-heart-avatar">
+        <img src="assets/images/foto10.jpg" alt="Foto juntos" class="modal-photo">
+      </div>
+      <h3 class="modal-title">¡Yo te extraño muchísimo más! 💕</h3>
+      <p class="modal-body-text">
+        Mi amor, si presionaste este botón quiero que recuerdes algo muy importante:
+        <br><br>
+        <strong>Estás en mi mente en cada segundo del día.</strong> No importa qué estemos haciendo ni dónde estemos, mi corazón late pensando en ti.
+        <br><br>
+        Falta muy poquito para abrazarte, besarte y decirte en persona lo infinitamente que te amo. Te mando un abrazo de esos apretados que te reinician la vida.
+      </p>
+      <div class="modal-badge-quote">
+        "Eres dinamita, y explotaste todo mi amor." 🎶
+      </div>
+      <button class="btn-primary modal-action-btn" id="btn-modal-love">
+        ¡Te Amo Infinito! ❤️
+      </button>
     </div>
-  </main>
+  </div>
 
-  <!-- Toast Notification Container -->
-  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  <!-- Canvas de Confeti y Corazones -->
+  <canvas id="hearts-canvas" class="confetti-canvas"></canvas>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <p>© <span id="current-year"></span> Proyecto Base Web · Creado con HTML, CSS y JS.</p>
-    </div>
-  </footer>
-
-  <!-- Script -->
   <script src="app.js"></script>
 </body>
 </html>

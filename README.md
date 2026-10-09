@@ -1,64 +1,43 @@
-# ⚡ NovaWeb - Sitio Web Moderno
+# 💕 1 Año y 9 Meses Juntos — Para Renata & Alfonso
 
-Una aplicación web moderna, ultraligera y responsiva construida con tecnologías web estándar (HTML5 semántico, CSS3 con diseño *glassmorphism* y JavaScript vanilla interactivo), lista para desplegarse en **Railway** o cualquier servicio en la nube.
-
----
-
-## 🚀 Características
-
-- **Diseño Moderno:** Modo oscuro elegante con paleta HSL, efecto de cristal (*glassmorphism*), orbes de luz ambiental y tipografía de Google Fonts (*Plus Jakarta Sans* y *Outfit*).
-- **Interactividad en Tiempo Real:**
-  - Contador reactivo con animaciones.
-  - Selector dinámico de paleta cromática (modifica variables CSS en tiempo real).
-  - Sistema de notificaciones *Toast* animadas con auto-desaparición.
-  - Reloj digital en vivo.
-- **Preparado para Producción:**
-  - Servidor ligero en Python (`server.py`) que detecta dinámicamente el puerto `$PORT` asignado por plataformas como Railway.
-  - `Dockerfile` y `Procfile` incluidos para despliegue instantáneo con un solo clic.
+Una experiencia web interactiva, romántica y optimizada para celulares (*Mobile-First*), celebrando **1 año y 9 meses (21 meses)** de amor incondicional, risas y momentos inolvidables.
 
 ---
 
-## 📁 Estructura del Proyecto
+## ✨ Características y Actividades Interactivas
 
-```text
-pagina-web-basica/
-├── index.html         # Estructura semántica de la interfaz
-├── style.css          # Estilos, efectos glassmorphism y diseño responsivo
-├── app.js             # Lógica interactiva y controladores de eventos
-├── server.py          # Servidor HTTP en Python para Railway / Producción
-├── Procfile           # Instrucción de inicio para Railway/Render
-├── Dockerfile         # Contenedor Docker para despliegue multiplataforma
-├── requirements.txt   # Dependencias del proyecto
-├── .gitignore         # Exclusión de archivos innecesarios para Git
-└── README.md          # Documentación del repositorio
-```
-
----
-
-## 🛠️ Ejecución Local
-
-### Opción 1: Con Python (recomendado)
-```bash
-python server.py
-```
-Abre en tu navegador: [http://localhost:8080](http://localhost:8080)
-
-### Opción 2: Abrir directamente
-Puedes hacer doble clic en `index.html` para abrirlo directamente en tu navegador favorito.
+1. **🎵 Música de Fondo en Bucle:**
+   - Canción oficial: *"Alma Dinamita"* de **WOS** sonando en bucle continuo.
+   - Widget flotante interactivo con disco de vinilo giratorio y controles táctiles estilo iOS.
+2. **📸 Galería Polaroid Deslizable:**
+   - Tira interactiva con nuestras fotos reales de momentos especiales con cinta adhesiva y dedicatorias tiernas.
+3. **💌 Razones por las que te amo (Tarjetas Volteables 3D):**
+   - Cuadrícula de cajitas de regalo cerradas. Al tocarlas, giran en 3D para revelar razones sinceras, recuerdos y frases románticas:
+     * *Te amo por cómo eres*
+     * *Te amo por cómo me tratas*
+     * *Te admiro por cómo te esfuerzas*
+     * *Te deseo y extraño todos los días*
+     * *Te pienso todos los días*
+     * Y más razones personalizadas con stickers flotantes.
+4. **🪙 El Rasca-Rasca Virtual del Amor (Scratchcard):**
+   - Tarjeta digital cubierta de oro rosa brillante que ella puede raspar con su dedito desde el celular o con el mouse.
+   - Al raspar el 50%, se desbloquea una foto sorpresa y la invitación a la próxima cita especial para el 2do aniversario.
+5. **🎁 Cuadro de Mensajes del Día (Galleta de la Fortuna):**
+   - Botón animado de regalo que al tocarlo genera cumplidos, recuerdos tiernos y notas de amor aleatorias.
+6. **💖 Botón de Emergencia: "¿Me extrañas?":**
+   - Botón flotante pulsante. Al presionarlo, dispara una lluvia de confeti de corazones y abre una cartita íntima recordándole cuánto la amas y que pronto se verán.
+7. **⏱️ Contador en Vivo de Aniversario:**
+   - Reloj activo con los meses, días, horas, minutos y segundos exactos de amor.
 
 ---
 
-## 🌐 Despliegue en Railway
+## 📱 Tecnologías
 
-1. Sube este repositorio a tu cuenta de **GitHub**.
-2. Entra a [Railway.app](https://railway.app/) e inicia sesión con tu cuenta de GitHub.
-3. Haz clic en **"New Project"** -> **"Deploy from GitHub repo"**.
-4. Selecciona este repositorio (`pagina-web-basica` o el nombre que le diste).
-5. Railway detectará automáticamente el archivo `Dockerfile` o `server.py` y desplegará tu página en minutos.
-6. Ve a la pestaña **Settings** en Railway y haz clic en **"Generate Domain"** para obtener tu enlace público en internet (ejemplo: `https://tu-web.up.railway.app`).
+- **HTML5 Semántico**: Optimizado para dispositivos móviles con meta-tags táctiles.
+- **CSS3 Moderno**: Paleta de colorimetría rosa pastel, efectos de cristal (*glassmorphism*), sombras suaves y animaciones 3D.
+- **JavaScript Vanilla**: Soporte táctil (`touchmove`, `touchstart`) para el rasca-rasca, confeti en `<canvas>` y reproductor de música.
+- **Listo para Railway / Producción**: Incluye `server.py` y `Dockerfile` configurados.
 
 ---
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. ¡Siéntete libre de modificarlo y expandirlo!
+Hecho con todo el amor del mundo para **Renata** ❤️
